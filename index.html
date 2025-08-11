@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-            padding: 20px 10px;
+            padding: 60px 10px 20px 10px;
         }
         
         /* Mobile-specific line break */
@@ -635,9 +635,8 @@
                 return;
             }
             
-            // If validation passes, form will submit to Formspree
-            // Show a loading message
-            alert('Submitting your information...');
+            // Form will submit to Formspree automatically
+            // No alert needed - Formspree will handle the redirect/confirmation
         });
         
         // Function to toggle the "Other" industry text field
