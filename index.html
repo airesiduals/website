@@ -65,7 +65,7 @@
             font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif;
             font-size: clamp(1rem, 3.45vw, 2.5rem);
             font-weight: 300;
-            letter-spacing: 0.28em;
+            letter-spacing: 0.20em;
             text-align: center;
             margin-left: -1ch;
         }
@@ -430,7 +430,7 @@
 </head>
 <body>
     <div class="main-text">&nbsp;&nbsp;A I.R<span style="margin-left: 0.1em; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 0.4em; vertical-align: 134%; font-weight: 400;">™</span></div>
-    <div class="company-text">AI Residuals<span style="font-size: 0.65em; vertical-align: 30%; letter-spacing: 0; margin-left: -0.28em;">™</span></div>
+    <div class="company-text">AI Residuals<span style="font-size: 0.65em; vertical-align: 30%; letter-spacing: 0; margin-left: -0.20em;">™</span></div>
     
     <div class="tagline">AI to save you time, reduce costs, and increase your impact.</div>
     <div class="subline">Education | Guidance | Execution | Outcomes</div>
@@ -461,57 +461,57 @@
                 <div style="display: flex; gap: 15px;">
                     <div class="form-group" style="flex: 1; margin-bottom: 20px;">
                         <label for="firstName">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" required>
+                        <input type="text" id="firstName" name="First Name" required>
                     </div>
                     <div class="form-group" style="flex: 1; margin-bottom: 20px;">
                         <label for="lastName">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" required>
+                        <input type="text" id="lastName" name="Last Name" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="Email" required>
                     <div id="emailError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">Please enter a valid email address</div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Mobile Phone *</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="Mobile Phone" required>
                 </div>
                 <div class="form-group">
                     <label for="aiExperience">AI Experience Level *</label>
-                    <select id="aiExperience" name="aiExperience" required>
+                    <select id="aiExperience" name="AI Experience Level" required>
                         <option value="">Select your experience level</option>
-                        <option value="none">New to AI</option>
-                        <option value="basic">Basic (using ChatGPT, etc.)</option>
-                        <option value="intermediate">Intermediate (integrating some AI tools)</option>
-                        <option value="advanced">Advanced (using custom AI solutions)</option>
+                        <option value="New to AI">New to AI</option>
+                        <option value="Basic (using ChatGPT, etc.)">Basic (using ChatGPT, etc.)</option>
+                        <option value="Intermediate (integrating some AI tools)">Intermediate (integrating some AI tools)</option>
+                        <option value="Advanced (using custom AI solutions)">Advanced (using custom AI solutions)</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="aiPerspective">What excites you most about AI, or what worries you?</label>
-                    <textarea id="aiPerspective" name="aiPerspective" rows="3" maxlength="800" oninput="updateCharacterCount('aiPerspective', 'aiPerspectiveCount')"></textarea>
+                    <textarea id="aiPerspective" name="What excites you most about AI, or what worries you?" rows="3" maxlength="800" oninput="updateCharacterCount('aiPerspective', 'aiPerspectiveCount')"></textarea>
                     <div class="character-count" id="aiPerspectiveCount">0 / 800 characters</div>
                 </div>
                 <div class="form-group" style="margin-right: 10px;">
                     <label>Which comes closest to describing your AI interests: *</label>
                     <div style="margin-top: 15px; color: #FFFFFF; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 300;">
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="aiInterests" value="education" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want an educational session that covers the latest AI developments" style="display: none;">
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I want an educational session that covers the latest AI developments</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="aiInterests" value="website" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want a new website for this AI era" style="display: none;">
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I want a new website for this AI era</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="aiInterests" value="consultation" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want to describe my work to you for ideas how AI can help me" style="display: none;">
                             <span class="radio-circle"></span>
-                            <span style="font-size: 14px;">I want to describe my work/processes to you for ideas how AI can help me</span>
+                            <span style="font-size: 14px;">I want to describe my work to you for ideas how AI can help me</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="aiInterests" value="implementation" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I know how I want to integrate AI and need someone to implement" style="display: none;">
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I know how I want to integrate AI and need someone to implement</span>
                         </label>
@@ -519,65 +519,65 @@
                 </div>
                 <div class="form-group">
                     <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
+                    <input type="text" id="company" name="Company">
                 </div>
                 <div class="form-group">
                     <label for="website">Website or Social Account</label>
-                    <input type="url" id="website" name="website" placeholder="https://yourwebsite.com or social media link">
+                    <input type="url" id="website" name="Website or Social Account" placeholder="https://yourwebsite.com or social media link">
                 </div>
                 <div class="form-group">
                     <label for="location">Location *</label>
-                    <input type="text" id="location" name="location" placeholder="City, State/Country" required>
+                    <input type="text" id="location" name="Location" placeholder="City, State/Country" required>
                 </div>
                 <div class="form-group">
                     <label for="industry">Industry/Sector</label>
-                    <select id="industry" name="industry" onchange="toggleOtherIndustry()">
+                    <select id="industry" name="Industry/Sector" onchange="toggleOtherIndustry()">
                         <option value="">Select your industry</option>
-                        <option value="consulting">Consulting</option>
-                        <option value="education">Education</option>
-                        <option value="finance">Financial Services</option>
-                        <option value="government">Government</option>
-                        <option value="healthcare">Healthcare</option>
-                        <option value="legal">Legal</option>
-                        <option value="logistics">Logistics</option>
-                        <option value="nonprofit">Non-profit</option>
-                        <option value="personal">Personal Project(s)</option>
-                        <option value="retail">Retail/E-commerce</option>
-                        <option value="technology">Technology</option>
-                        <option value="other">Other</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Education">Education</option>
+                        <option value="Financial Services">Financial Services</option>
+                        <option value="Government">Government</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Legal">Legal</option>
+                        <option value="Logistics">Logistics</option>
+                        <option value="Non-profit">Non-profit</option>
+                        <option value="Personal Project(s)">Personal Project(s)</option>
+                        <option value="Retail/E-commerce">Retail/E-commerce</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-group" id="otherIndustryGroup" style="display: none;">
                     <label for="otherIndustry" style="color: #00D4FF;">Please specify your industry *</label>
-                    <input type="text" id="otherIndustry" name="otherIndustry" placeholder="Enter your industry">
+                    <input type="text" id="otherIndustry" name="Please specify your industry" placeholder="Enter your industry">
                 </div>
                 <div class="form-group">
                     <label for="companySize">Company Size *</label>
-                    <select id="companySize" name="companySize" required>
+                    <select id="companySize" name="Company Size" required>
                         <option value="">Select company size</option>
-                        <option value="solo">Solo/Freelancer</option>
-                        <option value="small">2-10 employees</option>
-                        <option value="medium">11-50 employees</option>
-                        <option value="large">51-200 employees</option>
-                        <option value="enterprise">200+ employees</option>
+                        <option value="Solo/Freelancer">Solo/Freelancer</option>
+                        <option value="2-10 employees">2-10 employees</option>
+                        <option value="11-50 employees">11-50 employees</option>
+                        <option value="51-200 employees">51-200 employees</option>
+                        <option value="200+ employees">200+ employees</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="budget">Budget *</label>
                     <div style="position: relative; display: flex; align-items: center;">
                         <span style="position: absolute; left: 12px; color: #FFFFFF; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; z-index: 1;">$</span>
-                        <input type="number" id="budget" name="budget" placeholder="Enter minimum amount in USD" min="200" step="1" required style="padding-left: 25px; -moz-appearance: textfield;" onwheel="return false;" oninput="validateBudget()">
+                        <input type="number" id="budget" name="Budget" placeholder="Enter minimum amount in USD" min="200" step="1" required style="padding-left: 25px; -moz-appearance: textfield;" onwheel="return false;" oninput="validateBudget()">
                     </div>
                     <div id="budgetError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">The Discovery Questionnaire + Call is $200 and a required first step</div>
                 </div>
                 <div class="form-group">
                     <label for="message">What else should we know?</label>
-                    <textarea id="message" name="message" rows="3" maxlength="800" oninput="updateCharacterCount('message', 'messageCount')"></textarea>
+                    <textarea id="message" name="What else should we know?" rows="3" maxlength="800" oninput="updateCharacterCount('message', 'messageCount')"></textarea>
                     <div class="character-count" id="messageCount">0 / 800 characters</div>
                 </div>
                 <div class="form-group">
                     <label for="referralSource">How did you hear about us? *</label>
-                    <input type="text" id="referralSource" name="referralSource" required>
+                    <input type="text" id="referralSource" name="How did you hear about us?" required>
                 </div>
                 
                 <button type="submit" class="submit-button">Send Message</button>
@@ -617,7 +617,7 @@
         // Handle form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             // Check if AI interests radio button is selected
-            const aiInterests = document.querySelector('input[name="aiInterests"]:checked');
+            const aiInterests = document.querySelector('input[name="Which comes closest to describing your AI interests"]:checked');
             if (!aiInterests) {
                 e.preventDefault();
                 alert('Please select which option best describes your AI interests.');
