@@ -67,7 +67,7 @@
             font-weight: 300;
             letter-spacing: 0.20em;
             text-align: center;
-            margin-left: -0.25em;
+            margin-left: -0.15em;
             white-space: nowrap;
         }
         
@@ -429,6 +429,7 @@
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="Email" required>
+                    <div id="emailError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">Please enter a valid email address</div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Mobile Phone *</label>
@@ -556,6 +557,63 @@
             const modal = document.getElementById('contactModal');
             if (event.target == modal) {
                 modal.style.display = 'none';
+            }
+        }
+        
+        // Add real-time email validation when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            
+            emailInput.addEventListener('input', function() {
+                const email = this.value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (email && !emailRegex.test(email)) {
+                    emailError.style.display = 'block';
+                    this.style.borderColor = '#FF69B4';
+                } else {
+                    emailError.style.display = 'none';
+                    this.style.borderColor = '#444';
+                }
+            });
+            
+            emailInput.addEventListener('focus', function() {
+                if (this.style.borderColor !== '#FF69B4') {
+                    this.style.borderColor = '#00D4FF';
+                }
+            });
+            
+            emailInput.addEventListener('blur', function() {
+                if (this.style.borderColor !== '#FF69B4') {
+                    this.style.borderColor = '#444';
+                }
+            });
+            
+            // Add budget validation
+            const budgetInput = document.getElementById('budget');
+            const budgetError = document.getElementById('budgetError');
+            
+            budgetInput.addEventListener('input', function() {
+                const budget = parseFloat(this.value);
+                
+                if (this.value && budget < 200) {
+                    budgetError.style.display = 'block';
+                } else {
+                    budgetError.style.display = 'none';
+                }
+            });
+        });
+        
+        // Function to validate budget input
+        function validateBudget() {
+            const budget = parseFloat(document.getElementById('budget').value);
+            const errorDiv = document.getElementById('budgetError');
+            
+            if (budget && budget < 200) {
+                errorDiv.style.display = 'block';
+            } else {
+                errorDiv.style.display = 'none';
             }
         }
     </script>
