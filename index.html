@@ -67,7 +67,8 @@
             font-weight: 300;
             letter-spacing: 0.20em;
             text-align: center;
-            margin-left: -1ch;
+            margin-left: 0;
+            padding-right: 1em;
         }
         
         .tagline {
@@ -349,49 +350,6 @@
             background-color: #2a2a2a;
         }
         
-        /* Custom radio button styling */
-        .custom-radio {
-            -webkit-appearance: none !important;
-            -moz-appearance: none !important;
-            appearance: none !important;
-            width: 16px !important;
-            height: 16px !important;
-            min-width: 16px !important;
-            min-height: 16px !important;
-            max-width: 16px !important;
-            max-height: 16px !important;
-            border: none !important;
-            border-radius: 50% !important;
-            margin-right: 12px;
-            margin-top: 2px;
-            flex-shrink: 0 !important;
-            background-color: #00D4FF !important;
-            background: #00D4FF !important;
-            cursor: pointer;
-            outline: none !important;
-            position: relative;
-            display: inline-block !important;
-            aspect-ratio: 1 / 1 !important;
-            vertical-align: middle;
-        }
-        
-        .custom-radio:checked {
-            background-color: #00D4FF !important;
-            background: #00D4FF !important;
-        }
-        
-        .custom-radio:checked::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #2a2a2a;
-        }
-        
         .radio-option input[type="radio"] {
             -webkit-appearance: none !important;
             -moz-appearance: none !important;
@@ -430,7 +388,7 @@
 </head>
 <body>
     <div class="main-text">&nbsp;&nbsp;A I.R<span style="margin-left: 0.1em; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 0.4em; vertical-align: 134%; font-weight: 400;">™</span></div>
-    <div class="company-text">AI Residuals<span style="font-size: 0.65em; vertical-align: 30%; letter-spacing: 0; margin-left: -0.20em;">™</span></div>
+    <div class="company-text">AI Residuals<span style="font-size: 0.65em; vertical-align: 30%; letter-spacing: 0; margin-right: -0.8em;">™</span></div>
     
     <div class="tagline">AI to save you time, reduce costs, and increase your impact.</div>
     <div class="subline">Education | Guidance | Execution | Outcomes</div>
@@ -471,7 +429,6 @@
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="Email" required>
-                    <div id="emailError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">Please enter a valid email address</div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Mobile Phone *</label>
@@ -489,29 +446,29 @@
                 </div>
                 <div class="form-group">
                     <label for="aiPerspective">What excites you most about AI, or what worries you?</label>
-                    <textarea id="aiPerspective" name="What excites you most about AI, or what worries you?" rows="3" maxlength="800" oninput="updateCharacterCount('aiPerspective', 'aiPerspectiveCount')"></textarea>
+                    <textarea id="aiPerspective" name="What excites you most about AI, or what worries you?" rows="3" maxlength="800"></textarea>
                     <div class="character-count" id="aiPerspectiveCount">0 / 800 characters</div>
                 </div>
                 <div class="form-group" style="margin-right: 10px;">
                     <label>Which comes closest to describing your AI interests: *</label>
                     <div style="margin-top: 15px; color: #FFFFFF; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 300;">
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want an educational session that covers the latest AI developments" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want an educational session that covers the latest AI developments" style="display: none;" required>
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I want an educational session that covers the latest AI developments</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want a new website for this AI era" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want a new website for this AI era" style="display: none;" required>
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I want a new website for this AI era</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want to describe my work to you for ideas how AI can help me" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want to describe my work to you for ideas how AI can help me" style="display: none;" required>
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I want to describe my work to you for ideas how AI can help me</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I know how I want to integrate AI and need someone to implement" style="display: none;">
+                            <input type="radio" name="Which comes closest to describing your AI interests" value="I know how I want to integrate AI and need someone to implement" style="display: none;" required>
                             <span class="radio-circle"></span>
                             <span style="font-size: 14px;">I know how I want to integrate AI and need someone to implement</span>
                         </label>
@@ -531,7 +488,7 @@
                 </div>
                 <div class="form-group">
                     <label for="industry">Industry/Sector</label>
-                    <select id="industry" name="Industry/Sector" onchange="toggleOtherIndustry()">
+                    <select id="industry" name="Industry/Sector">
                         <option value="">Select your industry</option>
                         <option value="Consulting">Consulting</option>
                         <option value="Education">Education</option>
@@ -566,13 +523,13 @@
                     <label for="budget">Budget *</label>
                     <div style="position: relative; display: flex; align-items: center;">
                         <span style="position: absolute; left: 12px; color: #FFFFFF; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; z-index: 1;">$</span>
-                        <input type="number" id="budget" name="Budget" placeholder="Enter minimum amount in USD" min="200" step="1" required style="padding-left: 25px; -moz-appearance: textfield;" onwheel="return false;" oninput="validateBudget()">
+                        <input type="number" id="budget" name="Budget" placeholder="Enter minimum amount in USD" min="200" step="1" required style="padding-left: 25px; -moz-appearance: textfield;" onwheel="return false;">
                     </div>
                     <div id="budgetError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">The Discovery Questionnaire + Call is $200 and a required first step</div>
                 </div>
                 <div class="form-group">
                     <label for="message">What else should we know?</label>
-                    <textarea id="message" name="What else should we know?" rows="3" maxlength="800" oninput="updateCharacterCount('message', 'messageCount')"></textarea>
+                    <textarea id="message" name="What else should we know?" rows="3" maxlength="800"></textarea>
                     <div class="character-count" id="messageCount">0 / 800 characters</div>
                 </div>
                 <div class="form-group">
@@ -601,132 +558,6 @@
                 modal.style.display = 'none';
             }
         }
-        
-        // Function to validate budget input
-        function validateBudget() {
-            const budget = parseFloat(document.getElementById('budget').value);
-            const errorDiv = document.getElementById('budgetError');
-            
-            if (budget && budget < 200) {
-                errorDiv.style.display = 'block';
-            } else {
-                errorDiv.style.display = 'none';
-            }
-        }
-        
-        // Handle form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // Check if AI interests radio button is selected
-            const aiInterests = document.querySelector('input[name="Which comes closest to describing your AI interests"]:checked');
-            if (!aiInterests) {
-                e.preventDefault();
-                alert('Please select which option best describes your AI interests.');
-                return;
-            }
-            
-            // Check budget minimum
-            const budget = parseFloat(document.getElementById('budget').value);
-            if (budget && budget < 200) {
-                e.preventDefault();
-                alert('The Discovery Questionnaire + Call is $200 and a required first step');
-                return;
-            }
-            
-            // Check if "Other" is selected and the text field is filled
-            const industry = document.getElementById('industry').value;
-            const otherIndustry = document.getElementById('otherIndustry').value;
-            
-            if (industry === 'other' && !otherIndustry.trim()) {
-                e.preventDefault();
-                alert('Please specify your industry when selecting "Other".');
-                return;
-            }
-            
-            // Form will submit to Formspree automatically
-            // No alert needed - Formspree will handle the redirect/confirmation
-        });
-        
-        // Function to toggle the "Other" industry text field
-        function toggleOtherIndustry() {
-            const industrySelect = document.getElementById('industry');
-            const otherGroup = document.getElementById('otherIndustryGroup');
-            const otherInput = document.getElementById('otherIndustry');
-            
-            if (industrySelect.value === 'other') {
-                otherGroup.style.display = 'block';
-                otherInput.setAttribute('required', 'required');
-            } else {
-                otherGroup.style.display = 'none';
-                otherInput.removeAttribute('required');
-                otherInput.value = '';
-            }
-        }
-        
-        // Function to update character count
-        function updateCharacterCount(textareaId, counterId) {
-            const textarea = document.getElementById(textareaId);
-            const counter = document.getElementById(counterId);
-            const currentLength = textarea.value.length;
-            const maxLength = textarea.getAttribute('maxlength');
-            
-            counter.textContent = `${currentLength} / ${maxLength} characters`;
-            
-            // Add visual warnings as user approaches limit
-            counter.classList.remove('warning', 'limit');
-            if (currentLength > maxLength * 0.8) {
-                counter.classList.add('warning');
-            }
-            if (currentLength >= maxLength) {
-                counter.classList.add('limit');
-            }
-        }
-        
-        // Add change listeners to all select elements to handle color changes
-        document.addEventListener('DOMContentLoaded', function() {
-            const selects = document.querySelectorAll('.form-group select');
-            selects.forEach(select => {
-                select.addEventListener('change', function() {
-                    if (this.value !== '') {
-                        this.classList.add('selected');
-                    } else {
-                        this.classList.remove('selected');
-                    }
-                });
-            });
-            
-            // Initialize character count
-            updateCharacterCount('aiPerspective', 'aiPerspectiveCount');
-            updateCharacterCount('message', 'messageCount');
-            
-            // Add real-time email validation
-            const emailInput = document.getElementById('email');
-            const emailError = document.getElementById('emailError');
-            
-            emailInput.addEventListener('input', function() {
-                const email = this.value;
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (email && !emailRegex.test(email)) {
-                    emailError.style.display = 'block';
-                    this.style.borderColor = '#FF69B4';
-                } else {
-                    emailError.style.display = 'none';
-                    this.style.borderColor = '#444';
-                }
-            });
-            
-            emailInput.addEventListener('focus', function() {
-                if (this.style.borderColor !== '#FF69B4') {
-                    this.style.borderColor = '#00D4FF';
-                }
-            });
-            
-            emailInput.addEventListener('blur', function() {
-                if (this.style.borderColor !== '#FF69B4') {
-                    this.style.borderColor = '#444';
-                }
-            });
-        });
     </script>
 </body>
 </html>
