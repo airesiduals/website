@@ -38,6 +38,26 @@
             .desktop-spacing {
                 display: none;
             }
+            
+            /* Increase font weight on mobile for better legibility */
+            .company-text,
+            .tagline,
+            .subline,
+            .approach-header,
+            .approach-steps,
+            div[style*="color: #CCCCCC"] {
+                font-weight: 400 !important;
+            }
+            
+            /* Increase form font weights on mobile */
+            .form-group label,
+            .form-group input,
+            .form-group textarea,
+            .form-group select,
+            .modal-content p,
+            .radio-option {
+                font-weight: 400 !important;
+            }
         }
         
         .main-text {
@@ -152,7 +172,7 @@
         }
         
         .modal-content {
-            background-color: #1a1a1a;
+            background-color: #0f0f0f;
             margin: 2% auto;
             padding: clamp(20px, 5vw, 40px);
             border-radius: 12px;
@@ -396,7 +416,7 @@
     <div class="approach-header">Our Approach:</div>
     <div class="approach-steps">Discovery Questionnaire + Call<br>Deeper Dive to Define Your Goals<br>Brainstorm AI Solutions<br>Implementation</div>
     
-    <div style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(0.8rem, 2vw, 1.2rem); font-weight: 300; text-align: center; letter-spacing: 0.1em; margin-top: 3vh; margin-bottom: 1.92vh; line-height: 1.5;">We are passionate about educating others on the powerful uses of AI.<br class="mobile-break"><br class="desktop-spacing">Everyone has contributed data that powers AI,<br>and you deserve to benefit from it.</div>
+    <div style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(0.8rem, 2vw, 1.2rem); font-weight: 300; text-align: center; letter-spacing: 0.1em; margin-top: 3vh; margin-bottom: 1.92vh; line-height: 1.5;">We are passionate about educating others on the powerful uses of AI.<br class="mobile-break"><br class="desktop-spacing">You have contributed data that powers AI,<br>and you deserve to benefit from it.</div>
     
     <button class="contact-button" onclick="showForm()">Start Now</button>
     
