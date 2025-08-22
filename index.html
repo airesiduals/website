@@ -573,6 +573,7 @@
                 <div class="form-group">
                     <label for="website">Website or Social Media Link</label>
                     <input type="url" id="website" name="Website or Social Media Link" placeholder="https://website.com or social media">
+                    <div id="websiteError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">Please enter a valid URL (e.g., https://website.com)</div>
                 </div>
                 <div class="form-group">
                     <label for="location">Location *</label>
@@ -681,6 +682,78 @@
                 }
             });
             
+            // Add website URL validation
+            const websiteInput = document.getElementById('website');
+            const websiteError = document.getElementById('websiteError');
+            
+            websiteInput.addEventListener('input', function() {
+                const url = this.value.trim();
+                
+                if (url) {
+                    // Check if it's an email address
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailRegex.test(url)) {
+                        websiteError.textContent = 'Please enter a website URL, not an email address';
+                        websiteError.style.display = 'block';
+                        this.style.borderColor = '#FF69B4';
+                        return;
+                    }
+                    
+                    // Check if it's a valid URL
+                    try {
+                        const urlObj = new URL(url);
+                        if (!urlObj.protocol.startsWith('http')) {
+                            throw new Error('Invalid protocol');
+                        }
+                        websiteError.style.display = 'none';
+                        this.style.borderColor = '#444';
+                    } catch (e) {
+                        // Try adding https:// if missing
+                        try {
+                            const urlWithProtocol = url.startsWith('http') ? url : 'https://' + url;
+                            const urlObj = new URL(urlWithProtocol);
+                            websiteError.style.display = 'none';
+                            this.style.borderColor = '#444';
+                        } catch (e2) {
+                            websiteError.textContent = 'Please enter a valid URL (e.g., https://website.com)';
+                            websiteError.style.display = 'block';
+                            this.style.borderColor = '#FF69B4';
+                        }
+                    }
+                } else {
+                    websiteError.style.display = 'none';
+                    this.style.borderColor = '#444';
+                }
+            });
+            
+            websiteInput.addEventListener('focus', function() {
+                if (this.style.borderColor !== '#FF69B4') {
+                    this.style.borderColor = '#00D4FF';
+                }
+            });
+            
+            websiteInput.addEventListener('blur', function() {
+                if (this.style.borderColor !== '#FF69B4') {
+                    this.style.borderColor = '#444';
+                }
+            });
+            
+            // Add industry dropdown handler for "Other" option
+            const industrySelect = document.getElementById('industry');
+            const otherIndustryGroup = document.getElementById('otherIndustryGroup');
+            const otherIndustryInput = document.getElementById('otherIndustry');
+            
+            industrySelect.addEventListener('change', function() {
+                if (this.value === 'Other') {
+                    otherIndustryGroup.style.display = 'block';
+                    otherIndustryInput.required = true;
+                } else {
+                    otherIndustryGroup.style.display = 'none';
+                    otherIndustryInput.required = false;
+                    otherIndustryInput.value = '';
+                }
+            });
+            
             // Add budget validation
             const budgetInput = document.getElementById('budget');
             const budgetError = document.getElementById('budgetError');
@@ -693,6 +766,48 @@
                 } else {
                     budgetError.style.display = 'none';
                 }
+            });
+            
+            // Add form submission handler
+            const contactForm = document.getElementById('contactForm');
+            const submitButton = document.querySelector('.submit-button');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Disable submit button to prevent double submission
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                // Get form data
+                const formData = new FormData(this);
+                
+                // Submit using fetch API for better mobile compatibility
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Thank you! Your message has been sent successfully. We will contact you soon.');
+                        this.reset();
+                        hideForm();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+                })
+                .finally(() => {
+                    // Re-enable submit button
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send Message';
+                });
             });
         });
         
