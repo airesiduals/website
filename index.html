@@ -58,6 +58,32 @@
       }
     }
     </script>
+    <!-- Anti-scraping JavaScript measures (SEO-friendly) -->
+    <script>
+        // Basic bot detection (easily bypassed)
+        if (navigator.webdriver || window.navigator.webdriver) {
+            document.body.style.display = 'none';
+        }
+        
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // Disable drag
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // Basic console warning
+        console.warn('Unauthorized use, duplication, or scraping of this website is strictly prohibited and may violate applicable laws.');
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -119,6 +145,15 @@
             .modal-content p,
             .radio-option {
                 font-weight: 400 !important;
+            }
+            
+            /* Mobile footer styling */
+            .footer-content {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 8px !important;
+                line-height: 1.4 !important;
             }
         }
         
@@ -387,12 +422,12 @@
             color: #FF6B6B;
         }
         
-        /* Radio button styling */
-        .radio-group {
+        /* Checkbox styling */
+        .checkbox-group {
             margin-top: 10px;
         }
         
-        .radio-option {
+        .checkbox-option {
             display: flex;
             align-items: flex-start;
             margin-bottom: 15px;
@@ -402,11 +437,11 @@
             line-height: 1.4;
         }
         
-        /* Custom radio circle styling */
-        .radio-circle {
+        /* Custom checkbox square styling */
+        .checkbox-square {
             width: 16px;
             height: 16px;
-            border-radius: 50%;
+            border-radius: 3px;
             background: linear-gradient(135deg, #004C66, #003D52);
             border: 1px solid #0080CC;
             margin-right: 12px;
@@ -416,31 +451,30 @@
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         
-        /* When radio is checked, show inner dot */
-        input[type="radio"]:checked + .radio-circle {
+        /* When checkbox is checked, show checkmark */
+        input[type="checkbox"]:checked + .checkbox-square {
             background: linear-gradient(135deg, #00D4FF, #0080CC);
         }
         
-        input[type="radio"]:checked + .radio-circle::after {
-            content: '';
+        input[type="checkbox"]:checked + .checkbox-square::after {
+            content: '✓';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #2a2a2a;
+            color: #2a2a2a;
+            font-size: 12px;
+            font-weight: bold;
         }
         
-        .radio-option input[type="radio"] {
+        .checkbox-option input[type="checkbox"] {
             -webkit-appearance: none !important;
             -moz-appearance: none !important;
             appearance: none !important;
             width: 16px;
             height: 16px;
             border: none !important;
-            border-radius: 50%;
+            border-radius: 3px;
             margin-right: 12px;
             margin-top: 2px;
             flex-shrink: 0;
@@ -450,22 +484,21 @@
             outline: none !important;
         }
         
-        .radio-option input[type="radio"]:checked {
+        .checkbox-option input[type="checkbox"]:checked {
             border-color: #00D4FF;
             background-color: #00D4FF;
             position: relative;
         }
         
-        .radio-option input[type="radio"]:checked::before {
-            content: '';
+        .checkbox-option input[type="checkbox"]:checked::before {
+            content: '✓';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #2a2a2a;
+            color: #2a2a2a;
+            font-size: 12px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -474,8 +507,8 @@
     <h2 class="company-text">AI Residuals<span style="font-size: 0.65em; vertical-align: 30%; letter-spacing: 0; color: #00D4FF; margin-left: -0.2em;">™</span></h2>
     
     <div class="tagline">
-        <span class="desktop-tagline">Boutique AI Consultancy to save you time,<br>reduce costs, and increase your impact</span>
-        <span class="mobile-tagline" style="display: none;">Boutique AI Consultancy<br>to save you time, reduce costs,<br>and increase your impact</span>
+        <span class="desktop-tagline">Boutique AI Consultancy:<br>Save time. Reduce costs.<br>Increase your impact.</span>
+        <span class="mobile-tagline" style="display: none;">Boutique AI Consultancy:<br>Save time. Reduce costs.<br>Increase your impact.</span>
     </div>
     <div class="subline"><span style="letter-spacing: 0.02em;">Strategy</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span style="letter-spacing: 0.02em;">Hybrid Intelligence</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span style="letter-spacing: 0.15em;">Growth</span></div>
     
@@ -488,10 +521,30 @@
     
     <!-- Footer -->
     <footer style="margin-top: 6vh; padding: 2vh 0; border-top: 1px solid #333; width: 100%; text-align: center;">
-        <div style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(0.7rem, 1.5vw, 0.9rem); font-weight: 300; letter-spacing: 0.05em;">
-            Based in NY and MA&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" onclick="showForm(); return false;" style="color: #00D4FF; text-decoration: none;">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;© 2025 All Rights Reserved
+        <div class="footer-content" style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(0.7rem, 1.5vw, 0.9rem); font-weight: 300; letter-spacing: 0.05em;">
+            <div class="footer-location">Based in NY and MA, USA</div>
+            <div class="footer-links">
+                <a href="#" onclick="showForm(); return false;" style="color: #00D4FF; text-decoration: none;">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" onclick="showAbout(); return false;" style="color: #00D4FF; text-decoration: none;">About Us</a>
+            </div>
+            <div class="footer-copyright">© 2025 All Rights Reserved</div>
         </div>
     </footer>
+    
+    <!-- About Us Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideAbout()">&times;</span>
+            <h2>About AI Residuals<span style="font-size: 0.6em; vertical-align: super;">™</span></h2>
+            
+            <div style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.6; margin: 30px 0; text-align: left;">
+                We are a team building a human rights tech platform that disciplines technology to serve you. Based in New York and Massachusetts, we are passionate about empowering you with AI. We'll share more of our story as we work together to achieve your AI goals:
+                <br><br>
+                Fill out our quick form to <a href="#" onclick="hideAbout(); showForm(); return false;" style="color: #00D4FF; text-decoration: none;">get started</a>.
+                <br><br>
+                Thank you for your interest in AI Residuals™.
+            </div>
+        </div>
+    </div>
     
     <!-- Contact Form Modal -->
     <div id="contactModal" class="modal">
@@ -499,7 +552,7 @@
             <span class="close" onclick="hideForm()">&times;</span>
             <h2>Get Started with AI Residuals<span style="font-size: 0.6em; vertical-align: super;">™</span></h2>
             
-            <p style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.5; margin: 0 0 30px 0; text-align: left;">About us: We are passionate about empowering you with AI. We are a team building a human rights platform to discipline tech to serve you. We'll share more of our story as we work together to achieve your AI goals.</p>
+            <p style="color: #CCCCCC; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.5; margin: 0 0 30px 0; text-align: left;">About us: We are passionate about empowering you with AI. We are a team building a human rights platform to discipline tech to serve you.</p>
             
             <form id="contactForm" action="https://formspree.io/f/mvgqdnbn" method="POST">
                 <div style="display: flex; gap: 15px;">
@@ -531,39 +584,42 @@
                         <option value="Advanced (using custom AI solutions)">Advanced (using custom AI solutions)</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="aiPerspective">What excites you most about AI, or what worries you?</label>
-                    <textarea id="aiPerspective" name="What excites you most about AI, or what worries you?" rows="3" maxlength="800"></textarea>
-                    <div class="character-count" id="aiPerspectiveCount">0 / 800 characters</div>
-                </div>
                 <div class="form-group" style="margin-right: 10px;">
-                    <label>Which comes closest to describing your AI interests: *</label>
+                    <label>Your AI interests: *</label>
                     <div style="margin-top: 15px; color: #FFFFFF; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 300;">
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want an educational session that covers the latest AI developments" style="display: none;" required>
-                            <span class="radio-circle"></span>
+                            <input type="checkbox" name="Your AI interests" value="I want an educational session that covers the latest AI developments" style="display: none;">
+                            <span class="checkbox-square"></span>
                             <span style="font-size: 14px;">I want an educational session that covers the latest AI developments</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want a new website for this AI era" style="display: none;" required>
-                            <span class="radio-circle"></span>
+                            <input type="checkbox" name="Your AI interests" value="I want a new website for this AI era" style="display: none;">
+                            <span class="checkbox-square"></span>
                             <span style="font-size: 14px;">I want a new website for this AI era</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want to describe my work to you for ideas how AI can help me" style="display: none;" required>
-                            <span class="radio-circle"></span>
+                            <input type="checkbox" name="Your AI interests" value="I want to describe my work to you for ideas how AI can help me" style="display: none;">
+                            <span class="checkbox-square"></span>
                             <span style="font-size: 14px;">I want to describe my work to you for ideas how AI can help me</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I want AI tutoring sessions" style="display: none;" required>
-                            <span class="radio-circle"></span>
+                            <input type="checkbox" name="Your AI interests" value="I want AI tutoring sessions" style="display: none;">
+                            <span class="checkbox-square"></span>
                             <span style="font-size: 14px;">I want AI tutoring sessions</span>
                         </label>
                         <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
-                            <input type="radio" name="Which comes closest to describing your AI interests" value="I know how I want to integrate AI and need someone to implement" style="display: none;" required>
-                            <span class="radio-circle"></span>
+                            <input type="checkbox" name="Your AI interests" value="I know how I want to integrate AI and need someone to implement" style="display: none;">
+                            <span class="checkbox-square"></span>
                             <span style="font-size: 14px;">I know how I want to integrate AI and need someone to implement</span>
                         </label>
+                        <label style="margin-bottom: 15px; display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" id="otherAiInterest" name="Your AI interests" value="Other" style="display: none;">
+                            <span class="checkbox-square"></span>
+                            <span style="font-size: 14px;">Other<span id="otherAsterisk" style="color: #FFFFFF; margin-left: 2px; display: none;">*</span></span>
+                        </label>
+                    </div>
+                    <div class="form-group" id="otherAiInterestGroup" style="display: none; margin-top: 10px; margin-bottom: 0;">
+                        <input type="text" id="otherAiInterestText" name="Other AI Interest" placeholder="Describe your specific AI interest(s)">
                     </div>
                 </div>
                 <div class="form-group">
@@ -598,8 +654,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="otherIndustryGroup" style="display: none;">
-                    <label for="otherIndustry" style="color: #00D4FF;">Please specify your industry *</label>
-                    <input type="text" id="otherIndustry" name="Please specify your industry" placeholder="Enter your industry">
+                    <input type="text" id="otherIndustry" name="Please specify your industry" placeholder="Specify/describe your industry">
                 </div>
                 <div class="form-group">
                     <label for="companySize">Company Size *</label>
@@ -621,7 +676,7 @@
                     <div id="budgetError" style="color: #FF69B4; font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; margin-top: 5px; display: none;">The Discovery Questionnaire + Call is $200 and a required first step</div>
                 </div>
                 <div class="form-group">
-                    <label for="message">What else should we know?</label>
+                    <label for="message">What else should we know? What excites/worries you about AI?</label>
                     <textarea id="message" name="What else should we know?" rows="3" maxlength="800"></textarea>
                     <div class="character-count" id="messageCount">0 / 800 characters</div>
                 </div>
@@ -637,18 +692,46 @@
     
     <script>
         function showForm() {
-            document.getElementById('contactModal').style.display = 'block';
+            const modal = document.getElementById('contactModal');
+            modal.style.display = 'block';
+            
+            // Check if modal is actually visible after a brief delay
+            setTimeout(() => {
+                if (window.getComputedStyle(modal).display === 'none') {
+                    alert('Please ensure JavaScript is enabled to load the Contact Us form, and try again. If this issue persists, please contact us via email.');
+                }
+            }, 100);
         }
         
         function hideForm() {
             document.getElementById('contactModal').style.display = 'none';
         }
         
+        function showAbout() {
+            const modal = document.getElementById('aboutModal');
+            modal.style.display = 'block';
+            
+            // Check if modal is actually visible after a brief delay
+            setTimeout(() => {
+                if (window.getComputedStyle(modal).display === 'none') {
+                    alert('Please ensure JavaScript is enabled to see the About Us info, and try again. If this issue persists, please contact us via email.');
+                }
+            }, 100);
+        }
+        
+        function hideAbout() {
+            document.getElementById('aboutModal').style.display = 'none';
+        }
+        
         // Close modal when clicking outside of it
         window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
+            const contactModal = document.getElementById('contactModal');
+            const aboutModal = document.getElementById('aboutModal');
+            if (event.target == contactModal) {
+                contactModal.style.display = 'none';
+            }
+            if (event.target == aboutModal) {
+                aboutModal.style.display = 'none';
             }
         }
         
@@ -784,6 +867,25 @@
                 }
             });
             
+            // Add AI interests "Other" checkbox handler
+            const otherAiInterestCheckbox = document.getElementById('otherAiInterest');
+            const otherAiInterestGroup = document.getElementById('otherAiInterestGroup');
+            const otherAiInterestText = document.getElementById('otherAiInterestText');
+            const otherAsterisk = document.getElementById('otherAsterisk');
+            
+            otherAiInterestCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    otherAiInterestGroup.style.display = 'block';
+                    otherAiInterestText.required = true;
+                    otherAsterisk.style.display = 'inline';
+                } else {
+                    otherAiInterestGroup.style.display = 'none';
+                    otherAiInterestText.required = false;
+                    otherAiInterestText.value = '';
+                    otherAsterisk.style.display = 'none';
+                }
+            });
+            
             // Add budget validation
             const budgetInput = document.getElementById('budget');
             const budgetError = document.getElementById('budgetError');
@@ -798,11 +900,20 @@
                 }
             });
             
-            // Add form submission handler
+            // Add checkbox validation for AI interests
+            const checkboxes = document.querySelectorAll('input[name="Your AI interests"]');
             const contactForm = document.getElementById('contactForm');
-            const submitButton = document.querySelector('.submit-button');
             
+            // Add validation before form submission
             contactForm.addEventListener('submit', function(e) {
+                const checkedBoxes = document.querySelectorAll('input[name="Your AI interests"]:checked');
+                
+                if (checkedBoxes.length === 0) {
+                    e.preventDefault();
+                    alert('Please select at least one AI interest before submitting.');
+                    return false;
+                }
+                
                 e.preventDefault();
                 
                 // Disable submit button to prevent double submission
